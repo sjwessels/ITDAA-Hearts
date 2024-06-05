@@ -22,46 +22,45 @@ def heart_predict(patient_data):
         return 'Heart Disease'
 
 def main():
-    st.set_page_config(page_title="Heart Prediction", layout="wide")
+    st.set_page_config(page_title="Heart Prediction", layout="centered")
 
-    # Custom CSS for styling
+    # Custom CSS for minimalist styling
     st.markdown(
         """
         <style>
         body, .stApp {
-            background-color: #0e1117;
-            color: #f5f5f5;
+            background-color: #18191A;
+            color: #E4E6EB;
         }
         .stNumberInput, .stTextInput, .stSelectbox, .stButton {
             margin-bottom: 1rem;
         }
-        .stNumberInput > div > label, .stTextInput > div > label, .stSelectbox > div > label, .stButton > button {
-            color: #f5f5f5;
+        .stNumberInput > div, .stTextInput > div, .stSelectbox > div, .stButton > button {
+            background-color: #242526;
+            color: #E4E6EB;
+            border: 1px solid #3A3B3C;
+            border-radius: 0.25rem;
         }
-        .stNumberInput > div > div, .stTextInput > div > div, .stSelectbox > div > div, .stButton > button {
-            background-color: #1e1e1e;
-            color: #f5f5f5;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
+        .stNumberInput > div > label, .stTextInput > div > label, .stSelectbox > div > label {
+            color: #B0B3B8;
         }
         .stButton button {
-            background-color: #007BFF;
+            background-color: #3A3B3C;
             border: none;
-            padding: 10px 20px;
-            color: #fff;
-            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            color: #E4E6EB;
+            border-radius: 0.25rem;
             transition: background-color 0.3s ease;
         }
         .stButton button:hover {
-            background-color: #0056b3;
+            background-color: #4E4F50;
         }
         .stSuccess {
             background-color: #28a745 !important;
             color: #fff !important;
-            font-size: 1.5rem;
-            border-radius: 5px;
-            padding: 10px;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
             text-align: center;
         }
         </style>
@@ -102,7 +101,6 @@ def main():
 
     diagnosis = ''
     
-    # Button for prediction
     if st.button("Predict Heart Health"):
         diagnosis = heart_predict([age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal])
         
