@@ -6,20 +6,12 @@ Created on Wed Jun  5 17:45:47 2024
 """
 
 import streamlit as st
-import pickle# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  5 17:45:47 2024
-
-@author: User
-"""
-
-import streamlit as st
 import pickle
 import numpy as np
 
 
 # Load the trained model
-model = pickle.load(open('C:/Users/User/Desktop/ITDAA/ller werk/Prediction_model.sav', 'rb'))
+model = pickle.load(open('Prediction_model.sav', 'rb'))
 
 def heart_predict(patient_data):
     
