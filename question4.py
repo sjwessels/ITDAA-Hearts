@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+h# -*- coding: utf-8 -*-
 """
 Created on Wed Jun  5 17:45:47 2024
 
@@ -33,7 +33,7 @@ def heart_predict(patient_data):
 def main():
     
     st.set_page_config(page_title="Heart Prediction", layout="wide")
-    st.title("Heart Prediction System")
+    st.title("Heart Health Prediction System")
 
 
 
