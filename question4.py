@@ -11,13 +11,14 @@ import numpy as np
 
 
 
+#local use model = pickle.load(open('C:/Users/User/Desktop/ITDAA/ller werk/Prediction_model.sav', 'rb'))
 model = pickle.load(open('Prediction_model.sav', 'rb'))
 
 def heart_predict(patient_data):
     
     
     
-
+#Next
     np_input = np.asarray(patient_data)
     np_reshaped = np_input.reshape(1,-1)
 
