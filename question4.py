@@ -11,7 +11,7 @@ import numpy as np
 
 
 
-model = pickle.load(open('C:/Users/User/Desktop/ITDAA/ller werk/Prediction_model.sav', 'rb'))
+model = pickle.load(open('Prediction_model.sav', 'rb'))
 
 def heart_predict(patient_data):
     
