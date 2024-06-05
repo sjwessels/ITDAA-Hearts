@@ -9,7 +9,6 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Load the trained model
 model = pickle.load(open('Prediction_model.sav', 'rb'))
 
 def heart_predict(patient_data):
@@ -23,8 +22,6 @@ def heart_predict(patient_data):
 
 def main():
     st.set_page_config(page_title="Heart Prediction", layout="centered")
-
-    # Custom CSS for improved readability
     st.markdown(
         """
         <style>
@@ -79,25 +76,25 @@ def main():
     thal_options = {"Unknown": 0, "Normal": 1, "Fixed Defect": 2, "Reversible Defect": 3}
 
     age = st.number_input("Age", min_value=0, max_value=120)
-    sexView = st.selectbox("Select your Gender:", list(sex_options.keys()))
-    sex = sex_options[sexView]
-    cpView = st.selectbox("Chest Pain:", list(cp_options.keys()))
-    cp = cp_options[cpView]
-    trestbps = st.number_input("Resting Blood Pressure", min_value=0)
-    chol = st.number_input("Serum Cholesterol in mg/dl", min_value=0)
-    fbsView = st.selectbox("Fasting Blood Sugar >120mg/dl:", list(fbs_options.keys()))
-    fbs = fbs_options[fbsView]
-    restecgView = st.selectbox("Resting Electrocardiographic:", list(restecg_options.keys()))
-    restecg = restecg_options[restecgView]
-    thalach = st.number_input("Maximum Heart Rate Achieved", min_value=0)
-    exangView = st.selectbox("Exercise Induced Angina:", list(exang_options.keys()))
-    exang = exang_options[exangView]
+    sex = st.selectbox("Gender:", list(sex_options.keys()))
+    sex = sex_options[sex]
+    cp = st.selectbox("Chest Pain:", list(cp_options.keys()))
+    cp = cp_options[cp]
+    trestbps = st.number_input("Resting Blood Pressure bps", min_value=0)
+    chol = st.number_input("Cholesterol in mg/dl", min_value=0)
+    fbs = st.selectbox("Blood Sugar >120mg/dl:", list(fbs_options.keys()))
+    fbs = fbs_options[fbs]
+    restecg = st.selectbox("Resting ECG:", list(restecg_options.keys()))
+    restecg = restecg_options[restecg]
+    thalach = st.number_input("Maximum Heart Rate", min_value=0)
+    exang = st.selectbox("Exercise Induced Angina:", list(exang_options.keys()))
+    exang = exang_options[exang]
     oldpeak = st.number_input("ST Depression Induced by Exercise Relative to Rest", min_value=0.0, format="%.2f")
-    slopeView = st.selectbox("Slope of peak exercise ST segment:", list(slope_options.keys()))
-    slope = slope_options[slopeView]
-    ca = st.number_input("Number of major vessels colored by fluoroscopy", min_value=0)
-    thalView = st.selectbox("Status of your heart:", list(thal_options.keys()))
-    thal = thal_options[thalView]
+    slope = st.selectbox("Slope", list(slope_options.keys()))
+    slope = slope_options[slope]
+    ca = st.number_input("Number of major blood vessels", min_value=0)
+    thal = st.selectbox("Status:", list(thal_options.keys()))
+    thal = thal_options[thal]
 
     diagnosis = ''
     
