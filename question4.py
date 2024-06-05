@@ -9,8 +9,7 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Load the trained model
-model = pickle.load(open('Prediction_model.sav', 'rb'))
+model = pickle.load(open('prediction_model.sav', 'rb'))
 
 def heart_predict(patient_data):
     np_input = np.asarray(patient_data)
@@ -24,7 +23,6 @@ def heart_predict(patient_data):
 def main():
     st.set_page_config(page_title="Heart Prediction", layout="wide")
     
-    # Custom CSS for styling
     st.markdown(
         """
         <style>
@@ -43,6 +41,22 @@ def main():
         .stNumberInput div > label, .stTextInput div > label, .stSelectbox div > label, .stButton button {
             color: white;
         }
+        .stNumberInput input, .stTextInput input, .stSelectbox div, .stButton button {
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .stNumberInput input, .stTextInput input, .stSelectbox div {
+            background-color: white;
+            color: black;
+        }
+        .stButton button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .stButton button:hover {
+            background-color: #45a049;
+        }
         </style>
         """,
         unsafe_allow_html=True
@@ -59,29 +73,28 @@ def main():
     thal_options = {"Unknown": 0, "Normal": 1, "Fixed Defect": 2, "Reversible Defect": 3}
     
     age = st.number_input("Age", min_value=0, max_value=120)
-    sexView = st.selectbox("Select your Gender:", list(sex_options.keys()))
-    sex = sex_options[sexView]
-    cpView = st.selectbox("Chest Pain:", list(cp_options.keys()))
-    cp = cp_options[cpView]
+    sex = st.selectbox("Select your Gender:", list(sex_options.keys()))
+    sex = sex_options[sex]
+    cp = st.selectbox("Chest Pain:", list(cp_options.keys()))
+    cp = cp_options[cp]
     trestbps = st.number_input("Resting Blood Pressure", min_value=0)
     chol = st.number_input("Serum Cholesterol in mg/dl", min_value=0)
-    fbsView = st.selectbox("Fasting Blood Sugar >120mg/dl:", list(fbs_options.keys()))
-    fbs = fbs_options[fbsView]
-    restecgView = st.selectbox("Resting Electrocardiographic:", list(restecg_options.keys()))
-    restecg = restecg_options[restecgView]
+    fbs = st.selectbox("Fasting Blood Sugar >120mg/dl:", list(fbs_options.keys()))
+    fbs = fbs_options[fbs]
+    restecg = st.selectbox("Resting Electrocardiographic:", list(restecg_options.keys()))
+    restecg = restecg_options[restecg]
     thalach = st.number_input("Maximum Heart Rate Achieved", min_value=0)
-    exangView = st.selectbox("Exercise Induced Angina:", list(exang_options.keys()))
-    exang = exang_options[exangView]
+    exang = st.selectbox("Exercise Induced Angina:", list(exang_options.keys()))
+    exang = exang_options[exang]
     oldpeak = st.number_input("ST Depression Induced by Exercise Relative to Rest", min_value=0.0, format="%.2f")
-    slopeView = st.selectbox("Slope of peak exercise ST segment:", list(slope_options.keys()))
-    slope = slope_options[slopeView]
+    slope = st.selectbox("Slope of peak exercise ST segment:", list(slope_options.keys()))
+    slope = slope_options[slope]
     ca = st.number_input("Number of major vessels colored by fluoroscopy", min_value=0)
-    thalView = st.selectbox("Status of your heart:", list(thal_options.keys()))
-    thal = thal_options[thalView]
+    thal = st.selectbox("Status of your heart:", list(thal_options.keys()))
+    thal = thal_options[thal]
 
     diagnosis = ''
     
-    # Button for prediction
     if st.button("Predict Heart Health"):
         diagnosis = heart_predict([age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal])
         
