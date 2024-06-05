@@ -31,6 +31,45 @@ def heart_predict(patient_data):
     
 def main():
     
+    st.markdown(
+            """
+            <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+            .stApp {
+                background-color: black;
+                color: white;
+            }
+            .stNumberInput div, .stTextInput div, .stSelectbox div, .stButton button {
+                background-color: white;
+                color: black;
+            }
+            .stNumberInput div > label, .stTextInput div > label, .stSelectbox div > label, .stButton button {
+                color: white;
+            }
+            .stNumberInput input, .stTextInput input, .stSelectbox div, .stButton button {
+                border-radius: 5px;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+            .stNumberInput input, .stTextInput input, .stSelectbox div {
+                background-color: white;
+                color: black;
+            }
+            .stButton button {
+                background-color: #4CAF50;
+                color: white;
+            }
+            .stButton button:hover {
+                background-color: #45a049;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
     st.set_page_config(page_title="Heart Prediction", layout="wide")
     st.title("Heart Prediction System")
 
