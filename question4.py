@@ -24,7 +24,7 @@ def heart_predict(patient_data):
 def main():
     st.set_page_config(page_title="Heart Prediction", layout="centered")
 
-    # Custom CSS for minimalist styling
+    # Custom CSS for improved readability
     st.markdown(
         """
         <style>
