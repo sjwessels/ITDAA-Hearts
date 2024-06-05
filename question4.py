@@ -10,7 +10,7 @@ import pickle
 import numpy as np
 
 # Load the trained model
-model = pickle.load(open('prediction_model.sav', 'rb'))
+model = pickle.load(open('Prediction_model.sav', 'rb'))
 
 def heart_predict(patient_data):
     np_input = np.asarray(patient_data)
