@@ -65,7 +65,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.title("Heart Prediction System")
+    st.title("Heart Predictor")
 
     sex_options = {"Male": 1, "Female": 0}
     cp_options = {"Typical Angina": 0, "Atypical Angina": 1, "Non-Typical Angina": 2, "Asymptomatic": 3}
